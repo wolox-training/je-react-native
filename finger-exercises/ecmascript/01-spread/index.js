@@ -25,9 +25,10 @@ export function reverseMerge(arra, arrb) {
 }
 
 export function filterAttribs(obj) {
+  const objCopy = { ...obj };
   // eslint-disable-next-line no-param-reassign
-  delete obj.a;
+  delete objCopy.a;
   // eslint-disable-next-line no-param-reassign
-  delete obj.b;
-  return obj;
+  delete objCopy.b;
+  return objCopy;
 }
