@@ -20,6 +20,8 @@ export function copy(element) {
   }
 }
 
-export function reverseMerge() {}
+export function reverseMerge(arra, arrb) {
+  return [...arrb, ...arra];
+}
 
 export function filterAttribs() {}
