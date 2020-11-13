@@ -1,7 +1,7 @@
 import { isArray } from './utils';
 
 export function min(element, ...others) {
-  if (isArray(element)) {
+  if (element && isArray(element)) {
     return Math.min(...element);
   }
   if (typeof element === 'number' && others.length) {
