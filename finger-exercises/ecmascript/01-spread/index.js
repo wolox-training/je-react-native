@@ -10,7 +10,9 @@ export function min(element, ...others) {
   return element;
 }
 
-export function copy() {}
+export function copy(element) {
+  return { ...element };
+}
 
 export function reverseMerge() {}
 
