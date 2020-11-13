@@ -10,8 +10,14 @@ export function min(element, ...others) {
   return element;
 }
 
+// eslint-disable-next-line consistent-return
 export function copy(element) {
-  return { ...element };
+  if (element && element.constructor.name === 'Array') {
+    return [...element];
+  }
+  if (element && element.constructor.name === 'Object') {
+    return { ...element };
+  }
 }
 
 export function reverseMerge() {}
