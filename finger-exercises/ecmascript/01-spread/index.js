@@ -24,4 +24,10 @@ export function reverseMerge(arra, arrb) {
   return [...arrb, ...arra];
 }
 
-export function filterAttribs() {}
+export function filterAttribs(obj) {
+  // eslint-disable-next-line no-param-reassign
+  delete obj.a;
+  // eslint-disable-next-line no-param-reassign
+  delete obj.b;
+  return obj;
+}
