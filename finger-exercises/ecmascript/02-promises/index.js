@@ -14,6 +14,4 @@ export function delay(time) {
   });
 }
 
-export function asyncDelay() {
-
-}
+export const asyncDelay = delay;
