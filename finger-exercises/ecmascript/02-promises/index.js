@@ -1,9 +1,17 @@
 // Hint: use setInterval, create a new Promise and measure time with Date.now()
 
-export function delay() {
-
+// This function doesn't await if the interval is greater than 1000ms
+export function delay(time) {
+  return new Promise((resolve, reject) => {
+    if (time > 1000) {
+      reject(new Error('This time is too much !'));
+    }
+    const startTime = Date.now();
+    setTimeout(() => {
+      const elapsedTime = Date.now() - startTime;
+      resolve(elapsedTime);
+    }, time);
+  });
 }
 
-export function asyncDelay() {
-
-}
+export const asyncDelay = delay;
