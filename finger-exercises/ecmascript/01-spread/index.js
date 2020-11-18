@@ -9,6 +9,7 @@ export function min(element, ...others) {
   return Math.min(element, ...others);
 }
 
+// This function returns a copy of an object or an array
 export function copy(element) {
   if (!element) return undefined;
   return isArray(element) ? [...element] : { ...element };
@@ -18,9 +19,8 @@ export function reverseMerge(arra, arrb) {
   return [...arrb, ...arra];
 }
 
+// This function filters out the attributes a and b of the given object
 export function filterAttribs(obj) {
-  const objCopy = { ...obj };
-  delete objCopy.a;
-  delete objCopy.b;
-  return objCopy;
+  const { a, b, ...others } = obj;
+  return others;
 }
