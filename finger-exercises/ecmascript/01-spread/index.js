@@ -10,12 +10,8 @@ export function min(element, ...others) {
 }
 
 export function copy(element) {
-  if (element && element.constructor.name === 'Array') {
-    return [...element];
-  }
-  if (element && element.constructor.name === 'Object') {
-    return { ...element };
-  }
+  if (!element) return undefined;
+  return isArray(element) ? [...element] : { ...element };
 }
 
 export function reverseMerge(arra, arrb) {
