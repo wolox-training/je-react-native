@@ -1,16 +1,14 @@
 import { isArray } from './utils';
 
+// This function returns the minimun value from an array or a list of parameters
 export function min(element, ...others) {
+  if (!element) return undefined;
   if (element && isArray(element)) {
     return Math.min(...element);
   }
-  if (typeof element === 'number' && others.length) {
-    return Math.min(element, ...others);
-  }
-  return element;
+  return Math.min(element, ...others);
 }
 
-// eslint-disable-next-line consistent-return
 export function copy(element) {
   if (element && element.constructor.name === 'Array') {
     return [...element];
@@ -26,9 +24,7 @@ export function reverseMerge(arra, arrb) {
 
 export function filterAttribs(obj) {
   const objCopy = { ...obj };
-  // eslint-disable-next-line no-param-reassign
   delete objCopy.a;
-  // eslint-disable-next-line no-param-reassign
   delete objCopy.b;
   return objCopy;
 }
