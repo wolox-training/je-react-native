@@ -1,14 +1,10 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
-import BookCard from '@components/BookCard';
+import { SafeAreaView, StatusBar, View } from 'react-native';
+import BookList from '@components/BookList';
 import { IBook } from '@interfaces/BookInfo';
 import { BOOKS_MOCK } from '@constants/mockBooks';
 
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center'
-  }
-});
+import styles from './styles';
 
 const App = () => {
   const book: IBook[] = BOOKS_MOCK;
@@ -17,9 +13,7 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <View style={styles.container}>
-          {book.map(item => (
-            <BookCard key={item.id} book={item} />
-          ))}
+          <BookList bookArray={book} />
         </View>
       </SafeAreaView>
     </>
