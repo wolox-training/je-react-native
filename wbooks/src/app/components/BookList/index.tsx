@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, ListRenderItem } from 'react-native';
 import { IBook } from '@interfaces/BookInfo';
 import BookCard from '@components/BookCard';
 
@@ -10,7 +10,7 @@ interface IProps {
 }
 
 function BookList(props: IProps) {
-  const renderItem = ({ item }: { item: IBook }) => <BookCard book={item} />;
+  const renderItem: ListRenderItem<IBook> = ({ item }: { item: IBook }) => <BookCard book={item} />;
   return (
     <FlatList<IBook>
       style={styles.list}
