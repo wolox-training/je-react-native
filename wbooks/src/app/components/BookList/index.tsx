@@ -9,13 +9,13 @@ interface IProps {
   bookArray: IBook[];
 }
 
-function BookList(props: IProps) {
-  const renderItem: ListRenderItem<IBook> = ({ item }: { item: IBook }) => <BookCard book={item} />;
+function BookList({ bookArray }: IProps) {
+  const renderItem: ListRenderItem<IBook> = ({ item }) => <BookCard book={item} />;
   return (
     <FlatList<IBook>
       style={styles.list}
       contentContainerStyle={styles.listContainer}
-      data={props.bookArray}
+      data={bookArray}
       renderItem={renderItem}
       keyExtractor={item => item.id.toString()}
     />
