@@ -11,13 +11,14 @@ interface IProps {
 
 function BookList({ bookArray }: IProps) {
   const renderItem: ListRenderItem<IBook> = ({ item }) => <BookCard book={item} />;
+  const keyExtractor = ({id}: IBook) => String(id);
   return (
     <FlatList<IBook>
       style={styles.list}
       contentContainerStyle={styles.listContainer}
       data={bookArray}
       renderItem={renderItem}
-      keyExtractor={item => item.id.toString()}
+      keyExtractor={keyExtractor}
     />
   );
 }
