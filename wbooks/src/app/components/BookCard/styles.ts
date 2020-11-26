@@ -3,7 +3,7 @@ import { DARK_GREY, WITHE_BACKGROUD, SHADOW_COLOR } from '@constants/colors';
 
 export default StyleSheet.create({
   container: {
-    width: '100%',
+    maxWidth: '100%',
     backgroundColor: WITHE_BACKGROUD,
     flexDirection: 'row',
     paddingVertical: 15,
