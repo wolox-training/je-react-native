@@ -1,20 +1,40 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 import BookList from '@components/BookList';
+import { connect } from 'react-redux';
+import { actionCreators } from '@redux/books/actions';
 import { IBook } from '@interfaces/BookInfo';
-import { BOOKS_MOCK } from '@constants/mockBooks';
 
 import styles from './styles';
 
-function Library() {
-  const book: IBook[] = BOOKS_MOCK;
+interface IProps {
+  bookList: IBook[];
+  getBookList: () => void;
+}
+
+function Library({ bookList, getBookList }: IProps) {
+  getBookList();
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <BookList bookArray={book} />
+        <BookList bookArray={bookList} />
       </View>
     </SafeAreaView>
   );
 }
 
-export default Library;
+const mapStateToProps = ({ bookList }: any) => {
+  return {
+    bookList
+  };
+};
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    getBookList() {
+      dispatch(actionCreators.getBookList());
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Library);
