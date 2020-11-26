@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, View, Text } from 'react-native';
-import { IBook } from '@interfaces/BookInfo';
+import { IBook } from '@interfaces/bookInfo';
 import { cleanText } from '@utils/StringUtils';
 import BOOK_PLACEHOLDER from '@assets/General/img_book_placeholder_desc.png';
 

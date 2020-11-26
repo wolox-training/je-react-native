@@ -3,7 +3,7 @@ import { SafeAreaView, View } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import BookList from '@components/BookList';
 import { actionCreators } from '@redux/books/actions';
-import { AppState } from '@interfaces/AppInfo';
+import { AppState } from '@interfaces/appInfo';
 
 import styles from './styles';
 
