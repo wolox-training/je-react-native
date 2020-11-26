@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SafeAreaView, View } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 import BookList from '@components/BookList';
-import { connect } from 'react-redux';
 import { actionCreators } from '@redux/books/actions';
-import { IBook } from '@interfaces/BookInfo';
+import { AppState } from '@interfaces/AppInfo';
 
 import styles from './styles';
 
-interface IProps {
-  bookList: IBook[];
-  getBookList: () => void;
-}
+function Library() {
+  const bookList = useSelector((state: AppState) => state.bookList);
+  const dispatch = useDispatch();
 
-function Library({ bookList, getBookList }: IProps) {
-  getBookList();
+  useEffect(() => {
+    dispatch(actionCreators.getBookList());
+  }, [dispatch]);
+
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -23,18 +24,4 @@ function Library({ bookList, getBookList }: IProps) {
   );
 }
 
-const mapStateToProps = ({ bookList }: any) => {
-  return {
-    bookList
-  };
-};
-
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    getBookList() {
-      dispatch(actionCreators.getBookList());
-    }
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Library);
+export default Library;
