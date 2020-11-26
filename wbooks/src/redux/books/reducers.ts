@@ -1,19 +1,17 @@
-import { BOOKS_MOCK } from '@constants/mockBooks';
 import { actionNames as bookActionNames } from '@redux/books/actions';
-import { AppState } from '@interfaces/AppInfo';
-import { IBookAction } from '@interfaces/BookInfo';
+import { AppState } from '@interfaces/appInfo';
+import { IBookAction } from '@interfaces/bookInfo';
 
 const initialState: AppState = {
-  bookList: [],
-  idSelectedBook: null
+  bookList: []
 };
 
 const reducerBooks = (state = initialState, action: IBookAction): AppState => {
   switch (action.type) {
-    case bookActionNames.getBookList: {
+    case bookActionNames.GET_BOOK_LIST: {
       return {
         ...state,
-        bookList: BOOKS_MOCK
+        bookList: action.payload
       };
     }
     default:
@@ -21,4 +19,4 @@ const reducerBooks = (state = initialState, action: IBookAction): AppState => {
   }
 };
 
-export { reducerBooks };
+export default reducerBooks;
