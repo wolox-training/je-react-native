@@ -1,13 +1,15 @@
-const actionNames = {
+import { IBookAction } from '@interfaces/BookInfo';
+
+export const actionNames = {
   getBookList: 'GET_BOOK_LIST',
   getBookById: 'GET_BOOK_BY_ID'
 };
 
 export const actionCreators = {
-  getBookList: () => ({
+  getBookList: (): IBookAction => ({
     type: actionNames.getBookList
   }),
-  getBookById: (id: string) => ({
+  getBookById: (id: number): IBookAction => ({
     type: actionNames.getBookById,
     id
   })
