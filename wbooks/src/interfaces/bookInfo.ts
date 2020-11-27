@@ -10,5 +10,5 @@ export interface IBook {
 
 export interface IBookAction {
   type: string;
-  payload: any;
+  payload: IBook[] | string;
 }

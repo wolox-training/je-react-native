@@ -1,6 +1,6 @@
 import { actionNames as bookActionNames } from '@redux/books/actions';
 import { AppState } from '@interfaces/appInfo';
-import { IBookAction } from '@interfaces/bookInfo';
+import { IBookAction, IBook } from '@interfaces/bookInfo';
 
 const initialState: AppState = {
   bookList: [],
@@ -19,7 +19,7 @@ const reducerBooks = (state = initialState, action: IBookAction): AppState => {
     case bookActionNames.GET_BOOKS_SUCCESS: {
       return {
         ...state,
-        bookList: action.payload,
+        bookList: action.payload as IBook[],
         loadingBooks: false
       };
     }
@@ -27,7 +27,7 @@ const reducerBooks = (state = initialState, action: IBookAction): AppState => {
       return {
         ...state,
         loadingBooks: false,
-        errorMessage: action.payload
+        errorMessage: action.payload as string
       };
     }
     default:
