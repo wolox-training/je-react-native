@@ -7,3 +7,8 @@ export interface IBook {
   year: string;
   imageUrl: string | null;
 }
+
+export interface IBookAction {
+  type: string;
+  payload: IBook[] | string;
+}

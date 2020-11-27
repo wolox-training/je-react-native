@@ -1,6 +1,6 @@
 import React from 'react';
 import { FlatList, ListRenderItem } from 'react-native';
-import { IBook } from '@interfaces/BookInfo';
+import { IBook } from '@interfaces/bookInfo';
 import BookCard from '@components/BookCard';
 
 import styles from './styles';

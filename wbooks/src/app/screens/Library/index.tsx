@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SafeAreaView, View } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 import BookList from '@components/BookList';
-import { IBook } from '@interfaces/BookInfo';
-import { BOOKS_MOCK } from '@constants/mockBooks';
+import { actionCreators } from '@redux/books/actions';
+import { AppState } from '@interfaces/appInfo';
 
 import styles from './styles';
 
 function Library() {
-  const book: IBook[] = BOOKS_MOCK;
+  const bookList = useSelector((state: AppState) => state.bookList);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(actionCreators.getBooks());
+  }, [dispatch]);
+
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <BookList bookArray={book} />
+        <BookList bookArray={bookList} />
       </View>
     </SafeAreaView>
   );
