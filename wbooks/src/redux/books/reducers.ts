@@ -3,15 +3,31 @@ import { AppState } from '@interfaces/appInfo';
 import { IBookAction } from '@interfaces/bookInfo';
 
 const initialState: AppState = {
-  bookList: []
+  bookList: [],
+  loadingBooks: false,
+  errorMessage: ''
 };
 
 const reducerBooks = (state = initialState, action: IBookAction): AppState => {
   switch (action.type) {
-    case bookActionNames.GET_BOOK_LIST: {
+    case bookActionNames.GET_BOOKS: {
       return {
         ...state,
-        bookList: action.payload
+        loadingBooks: true
+      };
+    }
+    case bookActionNames.GET_BOOKS_SUCCESS: {
+      return {
+        ...state,
+        bookList: action.payload,
+        loadingBooks: false
+      };
+    }
+    case bookActionNames.GET_BOOKS_FAILURE: {
+      return {
+        ...state,
+        loadingBooks: false,
+        errorMessage: action.payload
       };
     }
     default:

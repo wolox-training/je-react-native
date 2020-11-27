@@ -12,7 +12,7 @@ function Library() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(actionCreators.getBookList());
+    dispatch(actionCreators.getBooks());
   }, [dispatch]);
 
   return (
