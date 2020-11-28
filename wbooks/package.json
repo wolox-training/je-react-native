@@ -7,6 +7,9 @@
     "android:build": "cd android/ && ./gradlew clean assembleRelease",
     "android:clean": "cd android/ && ./gradlew clean",
     "ios": "npx react-native run-ios",
+    "ios:iphone-8": "npx react-native run-ios --simulator=\"iPhone 8\"",
+    "ios:iphone-se": "npx react-native run-ios --simulator=\"iPhone SE (2nd generation)\"",
+    "ios:iphone-11": "npx react-native run-ios --simulator=\"iPhone 11\"",
     "ios:clean": "cd ios/ && rm -rf build && rm -rf Pods",
     "start": "npx react-native start",
     "test": "jest",
@@ -16,10 +19,13 @@
     "check-types": "tsc"
   },
   "dependencies": {
+    "apisauce": "^2.0.0",
     "react": "16.13.1",
     "react-native": "0.63.3",
+    "react-native-config": "^1.4.1",
     "react-redux": "^7.2.2",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
