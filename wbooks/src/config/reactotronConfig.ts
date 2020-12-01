@@ -1,0 +1,12 @@
+import Reactotron from 'reactotron-react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { reactotronRedux } from 'reactotron-redux';
+import tronsauce from 'reactotron-apisauce';
+
+const reactotron = Reactotron.configure({ name: 'WBooks' })
+  .setAsyncStorageHandler(AsyncStorage)
+  .useReactNative()
+  .use(reactotronRedux())
+  .use(tronsauce())
+  .connect();
+export default reactotron;
