@@ -1,11 +1,8 @@
 import { Dispatch } from 'redux';
+import { createTypes, completeTypes } from 'redux-recompose';
 import { BOOKS_MOCK } from '@constants/mockBooks';
 
-export const actionNames = {
-  GET_BOOKS: '@@BOOKS/GET_BOOKS',
-  GET_BOOKS_SUCCESS: '@@BOOKS/GET_BOOKS_SUCCESS',
-  GET_BOOKS_FAILURE: '@@BOOKS/GET_BOOKS_FAILURE'
-};
+export const actionNames = createTypes(completeTypes(['GET_BOOKS']), '@@BOOKS');
 
 export const actionCreators = {
   getBooks: () => (dispatch: Dispatch) => {
