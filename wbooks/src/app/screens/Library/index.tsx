@@ -8,7 +8,9 @@ import { AppState } from '@interfaces/appInfo';
 import styles from './styles';
 
 function Library() {
-  const bookList = useSelector((state: AppState) => state.bookList);
+  const bookList = useSelector((state: AppState) => {
+    return state.bookList;
+  });
   const dispatch = useDispatch();
 
   useEffect(() => {
